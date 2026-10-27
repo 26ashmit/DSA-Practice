@@ -25,15 +25,27 @@ public:
     //     return n;
 
     // }
-    int missingNumber(vector<int>& nums) {
-        int n=nums.size();
-        int arr_sum=0;
-        for(int i=0;i<n;i++){
-            arr_sum+=nums[i];
-        }
-        int total_sum=(n*(n+1))/2;
-        return total_sum - arr_sum;
+    // int missingNumber(vector<int>& nums) {
+    //     int n=nums.size();
+    //     int arr_sum=0;
+    //     for(int i=0;i<n;i++){
+    //         arr_sum+=nums[i];
+    //     }
+    //     int total_sum=(n*(n+1))/2;
+    //     return total_sum - arr_sum;
 
-        }
+    //     }
+        int missingNumber(vector<int>& nums) {
+        int n=nums.size();
+         vector<bool> arr(n+1,false);
+           for(int i=0;i<n;i++){
+             arr[nums[i]]=true;
+           }
+           for(int i=0;i<=n;i++){
+              if(arr[i]==false) return i;
+           }
+           return 0;
+
+            }
     
 };
